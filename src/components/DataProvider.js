@@ -4,11 +4,21 @@ export const DataContext = createContext()
 
 export const DataProvider = (props) => {
     const [todos,setTodos] = useState([
-        {name:"coding", complete:false},
-        {name:"leetcode", complete:false},
-        {name:"todo", complete:true}
-
+        // {name:"coding", complete:false},
+        // {name:"leetcode", complete:false},
+        // {name:"todo", complete:true}
     ])
+
+    useEffect(()=>{
+        const todoStore = JSON.parse(localStorage.getItem('todoStore'))
+        if(todoStore) setTodos(todoStore)
+    },[])
+
+    useEffect(()=>{
+        localStorage.setItem('todoStore', JSON.stringify(todos))
+    },[todos])
+
+
     return (
         <DataContext.Provider value={[todos,setTodos]}>
             {props.children}
