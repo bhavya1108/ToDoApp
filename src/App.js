@@ -10,7 +10,17 @@ function App() {
       </form>
       <ul>
         <li>
-          <label htmlFor="">
+          <label htmlFor="" >
+            <input type="checkbox" id=""/>
+            Coding
+          </label>
+          <button>Edit</button>
+        </li>
+      </ul>
+
+      <ul>
+        <li>
+          <label htmlFor="" className="active">
             <input type="checkbox" id=""/>
             Coding
           </label>
